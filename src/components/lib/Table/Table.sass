@@ -1,0 +1,145 @@
+
+$margin-width: 30px
+
+.root
+  width: 100%
+  max-height: 100%
+  display: flex
+  flex-direction: column
+  flex-grow: 1
+
+.rows
+  overflow-y: auto
+  width: 100%
+  flex-grow: 1
+  display: flex
+  flex-direction: column
+
+.forceScroll
+  overflow-y: scroll
+
+.row
+  display: flex
+  position: relative
+  flex-shrink: 0
+  width: 100%
+
+  padding: 5px $margin-width/2
+  line-height: 20px
+
+
+.indicator
+  position: absolute
+  top: 0
+  left: 0
+  height: 100%
+  width: 20px
+
+.indicator3, .indicator:hover
+  border-left: 2px solid #FF5733
+
+.indicator2, .indicator2:hover
+  border-left: 2px solid #3DD2CC
+ 
+
+.indicator:hover
+  border-width: 3px
+
+.row.body:hover
+  background: #e4ebf1
+
+.row.body:not(:first-child)
+  border-top: 1px solid #e4ebf1
+
+.row.header
+  font-weight: bold
+  color: #333
+  border-bottom: 1px solid #e4ebf1  
+  box-shadow: 0 1px 1px rgba(0,0,0,.05)
+
+.tg
+  display: flex
+  flex-direction: row
+.td
+  padding: 2px
+  &, &:hover, &:active, &:focus
+    text-decoration: none
+    color: #000
+.row.body .td
+  display: flex
+  align-items: flex-start
+.row
+  &, &:hover, &:active, &:focus
+    text-decoration: none
+    color: #000
+
+@for $i from 0 through 14
+  body :global .level#{$i} :local
+    .tg#{$i}
+      flex-direction: column
+      .td
+        flex: initial !important
+        width: 100%
+
+.row.header .td > i
+  top: 4px
+  position: relative
+  width: 10px
+  margin-right: -10px
+  padding-left: 3px
+
+.sortable
+  cursor: pointer
+  +noselect
+  >i
+    display: none
+
+.sort, .sortable:hover
+  text-decoration: underline
+  >i
+    text-decoration: none
+    display: inline-block
+.row.header .td.reverse > i
+  top: -1px
+
+.paginatorRow
+  justify-content: flex-end
+  box-shadow: 0 -1px 1px rgba(0,0,0,.05)
+
+ul.paginator
+  margin: 0
+  margin-top: 5px
+
+.spinner
+  align-self: center
+  margin-top: auto
+  margin-bottom: auto
+
+.errorMessage
+  align-self: center
+  margin-top: auto
+  margin-bottom: auto
+  display: flex
+  color: #555
+  font-weight: 500
+  font-size: 14px
+  white-space: pre
+  text-align: center
+  max-width: 700px
+  white-space: pre-line
+  text-align: center
+  word-wrap: break-word
+  flex-shrink: 0
+  flex-grow: 0
+  word-break: break-word
+
+.tooltip
+  width: 350px
+  overflow: hidden
+  white-space: pre-line
+  word-break: break-word
+
+.root :global
+  .__react_component_tooltip
+    padding: 5px 10px
+    border-radius: 0px

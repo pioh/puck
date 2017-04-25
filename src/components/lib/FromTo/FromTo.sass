@@ -1,0 +1,28 @@
+div.form_group
+  float : left
+  margin : 0
+
+.input_group_left
+  padding-right: 10px
+
+.input_group
+  width : 50%
+  float : left
+
+.input_group_date
+  @extend .input_group 
+  width : 50%
+  min-width : 130px  
+
+.form_group :global
+  .rdtPicker
+    top: 29px
+    right: -25px
+  .dropdown-menu.pull-right
+    left : 0px !important
+  .bootstrap-datetimepicker-widget.pull-right:after
+    left : 125px !important
+    right : auto !important
+  .bootstrap-datetimepicker-widget.pull-right:before
+    left : 124px !important
+    right : auto !important

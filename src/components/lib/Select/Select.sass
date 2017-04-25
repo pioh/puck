@@ -1,0 +1,48 @@
+.root
+  flex-grow: 1
+
+.root.upper :global
+  .multiselect.btn .caret
+    transform: rotate(180deg)
+  .dropdown-menu
+    box-shadow: 0 -2px 4px rgba(0,0,0,.2)
+    top: auto
+    bottom: 100%
+
+.small :global
+  .multiselect.btn
+    padding: 2px 6px
+    padding-right: 15px
+    font-size: 11px
+    line-height: 11px
+    font-weight: bold
+    min-height: 19px 
+  
+  .multiselect.btn .caret
+    right: 4px
+  .multiselect-container>li>a>label.radio
+    font-size: 11px
+    line-height: 14px
+    min-height: 14px
+    padding: 2px 6px
+  .dropdown-menu
+    min-width: auto
+
+.sm :global
+  .multiselect.btn
+    padding: 3px 7px
+    padding-right: 12px
+    font-size: 12px
+    line-height: 14px
+    font-weight: bold
+    min-height: 22px 
+  
+  .multiselect.btn .caret
+    right: 4px
+  .multiselect-container>li>a>label.radio
+    font-size: 12px
+    line-height: 16px
+    min-height: 16px
+    padding: 3px 7px
+  .dropdown-menu
+    min-width: auto

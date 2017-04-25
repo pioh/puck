@@ -1,0 +1,44 @@
+
+.root
+  min-height: 150px
+  margin: $gutter * 1px
+  padding: $gutter * 1px 0
+  margin-top: 0
+  background: white
+  +shadow-2dp
+  display: flex
+  flex: 1
+
+.index
+  justify-content: flex-end
+  text-align: right
+  padding-right: 8px
+
+
+.rightBy0
+  justify-content: flex-end
+  text-align: right
+  
+.rightBy1
+  justify-content: flex-end
+  text-align: right
+  
+.rightBy2
+  justify-content: flex-end
+  text-align: right
+
+body :global .level0 :local .rightBy0
+  text-align: left
+  justify-content: flex-start
+    
+body :global .level1 :local .rightBy1
+  text-align: left
+  justify-content: flex-start
+
+body :global .level2 :local .rightBy2
+  text-align: left
+  justify-content: flex-start
+
+.statusText
+  font-weight: 500
+  font-size: 12px

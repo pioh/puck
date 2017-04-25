@@ -1,0 +1,17 @@
+
+data
+#generated
+./*/grpc
+**/node_modules
+**/dist
+**/*.swp
+**/*.swo
+**/.vscode
+**/runtime
+**/.runtime
+.DS_STORE
+*.log
+**/.vscode
+coverage
+.idea
+stats.json

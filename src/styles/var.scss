@@ -1,0 +1,20 @@
+@import 'susy/sass/susy';
+
+@import 'compass-mixins/lib/compass';
+
+$susy: (
+  global-box-sizing: border-box,
+  columns: 12, 
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: inside,
+  use-custom: (
+    box-sizing: true,
+    rem: false,
+    clearfix: true,
+  )
+);
+
+@import "./global.var.sass";
+@import "./mixins.scss";

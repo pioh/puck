@@ -1,0 +1,26 @@
+//-- Shadows
+$shadow-key-umbra-opacity: 0.2 !default;
+$shadow-key-penumbra-opacity: 0.14 !default;
+$shadow-ambient-shadow-opacity: 0.12 !default;
+
+@mixin shadow-2dp() {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+  0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+  /*box-shadow: 0 1px 2px rgba(0,0,0,.1);*/
+}
+
+
+@mixin shadow () {
+  @include shadow-2dp;
+}
+
+@mixin noselect () {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+     -khtml-user-select: none; /* Konqueror */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
+}

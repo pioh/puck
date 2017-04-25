@@ -1,0 +1,51 @@
+{
+  "parser"  : "babel-eslint",
+  "extends" : [
+    "standard",
+    "standard-react"
+  ],
+  "plugins": [
+    "babel",
+    "react",
+    "promise"
+  ],
+  "fix" : true,
+  "env"     : {
+    "browser" : true
+  },
+  "globals" : {
+    "__DEV__"      : false,
+    "__PROD__"     : false,
+    "__DEBUG__"    : false,
+    "__COVERAGE__" : false,
+    "__BASENAME__" : false
+  },
+  "rules": {
+    "semi" : [2, "never"],
+    "max-len": [2, 120, 2],
+    "generator-star-spacing": 1,
+    "jsx-quotes": [2, "prefer-single"],
+    "comma-dangle" : [2, "only-multiline"],
+    "key-spacing": ["error", {
+      "align": {
+        "beforeColon": true,
+        "afterColon": true,
+        "on": "colon"
+      }
+    }],
+    "no-multi-spaces": [0, {
+      "exceptions": {
+        "Property": true,
+        "VariableDeclarator": true,
+        "ImportDeclaration": true,
+        "AssignmentExpression" : true,
+        "ObjectExpression" : true
+      }
+    }],
+    "no-multiple-empty-lines": ["error", {
+      "max": 2,
+      "maxEOF": 1
+    }],
+    "react/jsx-no-bind": [0]
+  }
+}

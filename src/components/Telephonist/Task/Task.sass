@@ -1,0 +1,313 @@
+
+.root
+  display: flex
+  flex-direction: column
+  flex-grow: 1
+  flex-shrink: 0
+  justify-content: flex-start
+  height: 100%
+  max-height: 100%
+  overflow-y: auto
+  padding-right: $gutter * 1px
+  padding-bottom: $gutter * 1px
+
+.mainBlock
+  display: flex
+  flex-direction: row
+  flex-grow: 1
+  flex-shrink: 0
+  flex-wrap: wrap-reverse
+
+.leftBlock
+  display: flex
+  width: 500px
+  min-width: 500px
+  flex-grow: 1
+  flex-direction: column
+  flex-shrink: 0
+  flex: 2
+
+.rightBlock
+  display: flex
+  width: 500px
+  min-width: 500px
+  flex-grow: 1
+  flex-direction: column
+  flex-shrink: 0
+  flex: 3
+
+.descriptionBlock
+  display: flex
+  +shadow-2dp
+  min-height: 300px
+  flex-direction: column
+  margin-left: $gutter * 1px
+  margin-top: $gutter * 1px
+  background: white
+  flex-shrink: 0
+
+.descriptionBlock strong
+  margin: 10px
+  margin-bottom: 0px
+
+.descriptionBlock .descriptionText
+  width: auto
+  margin: 10px
+  flex-grow: 1
+  resize: vertical
+
+.photosBlock
+  display: flex
+  min-height: 80px
+  max-height: 400px
+  +shadow-2dp
+  margin-left: $gutter * 1px
+  margin-top: $gutter * 1px
+  background: white
+  flex-shrink: 0
+
+.photos
+  display: flex
+  width: 100%
+
+.commentBlock
+  display: flex
+  +shadow-2dp
+  min-height: 120px
+  flex-direction: column
+  margin-left: $gutter * 1px
+  margin-top: $gutter * 1px
+  background: white
+  flex-shrink: 0
+  flex-grow: 0
+
+.commentBlock strong
+  margin: 10px
+  margin-bottom: 0px
+.commentBlock .commentText
+  width: auto
+  margin: 10px
+  flex-grow: 1
+  resize: vertical
+
+.actionsBlock
+  display: flex
+  +shadow-2dp
+  margin-left: $gutter * 1px
+  margin-top: $gutter * 1px
+  background: white
+  flex-shrink: 0
+  align-items: flex-start
+  justify-content: flex-end
+  flex-wrap: wrap
+  padding-right: 10px
+  padding-bottom: 10px
+
+.actionsButtons
+  display: flex
+  justify-content: flex-end
+  flex-wrap: wrap
+  flex-direction: column
+
+.actionButton
+  position: relative
+
+.actionsButtons .actionButton
+  margin-top: 10px
+  margin-left: 10px
+
+.actionsButtons .actionButton button i,
+  margin-left: 10px
+
+.actionsButtonsTop, .actionsButtonsBottom
+  display: flex
+  justify-content: flex-end
+  flex-wrap: wrap
+
+.titleBlock
+  display: flex
+  margin-left: 10px
+  margin-top: 10px
+  flex-grow: 1
+  width: 550px
+  flex-direction: column
+  align-items: flex-start
+
+input.title
+  display: flex
+  flex-grow: 1
+  font-weight: bold
+  border-color: white
+  font-size: 14px
+
+a.titleLink
+  display: flex
+  margin-left: 8px
+
+.mapBlock
+  display: flex
+  margin-left: $gutter * 1px
+  margin-top: $gutter * 1px
+  background: white
+  +shadow-2dp
+  height: 450px
+  flex-shrink: 0
+  flex-grow: 0
+  flex-direction: column
+
+.map
+  margin-top: -50px
+
+.addressBlock
+  display: flex
+  align-items: center
+  position: relative
+  z-index: 1
+  padding-right: 10px
+  padding-bottom: 10px
+
+.addressBlockInput,
+.addressBlock>input
+  margin-left: 10px
+  margin-top: 10px
+  width: 70px
+  flex-shrink: 0
+
+.addressBlockInput
+  display: flex
+  flex-grow: 1
+  width: auto
+
+.fieldsBlock
+  display: flex
+  +shadow-2dp
+  margin-left: $gutter * 1px
+  margin-top: $gutter * 1px
+  background: white
+  flex-shrink: 0
+  padding: 10px
+  padding-top: 0
+  flex-grow: 0
+
+.tabs
+  width: 100%
+
+.fieldsTable
+  display: flex
+  flex-direction: column
+  flex-grow: 1
+  margin-top: 20px
+
+.fieldsTableRow
+  color: #333
+  display: flex
+  border-bottom: 1px solid #e4ebf1
+
+.fieldsTableRow:last-child
+  border-bottom: none
+
+
+.fieldsTableTitle
+  display: flex
+  font-weight: bold
+  color: #555
+  border-right: 1px solid #e4ebf1
+  flex: 1
+  padding: 5px
+  align-items: center
+
+.fieldsTableValue
+  display: flex
+  flex: 1
+  padding: 5px
+
+input.fieldsTableValue
+  border-color: white
+
+.required
+  color: #D84A38
+  padding: 0 2px
+  align-self: flex-start
+  margin-left: auto
+
+
+.tooltip
+  width: 350px
+  overflow: hidden
+  white-space: pre-line
+  word-break: break-word
+
+.root button[disabled]
+  pointer-events: none
+
+.root :global
+  .__react_component_tooltip.place-bottom:after
+    left: auto
+    right: 10px
+
+  .__react_component_tooltip
+    padding: 5px 10px
+    border-radius: 0px
+
+.fieldsTableValue
+  transition-duration: .6s
+  transition-property: background-color
+  transition-timing-function: cubic-bezier(.1,0,.25,1)
+
+.fieldsTableRowError .fieldsTableValue
+  background-color: rgba(217, 83, 79, 0.2)
+
+.buttonSpinner
+  position: absolute
+  width: 100%
+  height: 100%
+  display: flex
+  left: 0
+  top: 0
+  justify-content: center
+  align-items: center
+  z-index: 1
+
+.centerBlock
+  display: flex
+  flex-grow: 1
+  justify-content: center
+  align-items: center
+
+.taskErrorMessage
+  display: flex
+  justify-content: center
+  align-items: center
+  white-space: pre-line
+  text-align: center
+  font-size: 15px
+  font-weight: bold
+  color: #444
+
+.manuallyCreated
+  font-size: 11px
+  line-height: 19px
+  margin-top: 10px
+  margin-left: 10px
+  font-weight: 700
+  color: #ff4d00
+
+.userId
+  display: flex
+  margin-top: 10px
+  margin-left: 10px
+
+.userIdLabel
+  line-height: 19px
+  height: 19px
+  padding-right: 6px
+  font-size: 11px
+  font-weight: 700
+  color: #333
+
+.verificationStatus
+  font-size: 11px
+  line-height: 19px
+  margin-top: 10px
+  margin-left: 10px
+  font-weight: 700

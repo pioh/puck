@@ -1,0 +1,27 @@
+
+.root
+  position: relative
+
+input.input
+  border-radius: 0
+
+.list
+  position: absolute
+  top: 100%
+  z-index: 10
+  border: 1px solid rgb(217,217,217)
+  background: white
+  +shadow
+  left: 0px
+  right: 0px
+  margin-top: 1px
+  max-height: 200px
+  overflow-y: auto
+  +noselect
+
+.row
+  cursor: pointer
+  padding: 5px
+
+.row:hover
+  background: #eee

@@ -1,0 +1,60 @@
+
+.root
+  display: flex
+  width: 100%
+  line-height: $header-height*1px
+  +shadow-2dp
+  background: #5682A3
+  color: white
+  font-size: 15px
+  font-weight: 500
+  display: flex
+  z-index: 100
+
+.item
+  display: flex
+  align-items: center
+  text-align : center
+  float : left
+  padding: 0 8px
+  &,&:hover,&:visited,&:focus
+    color : #FFF
+    text-decoration : none
+
+.logo
+  @extend .item
+  font-size : 17px
+  padding-right : 20px
+  font-weight: 700
+
+.link
+  @extend .item
+  &:hover
+    background : #5e8bad
+  &.active
+    background : #3e6b8d
+
+.glyph
+  @extend .link
+  font-size: 1.1em
+  margin-left: auto
+
+.button
+  @extend .link
+  cursor: pointer
+
+.text
+  padding: 0 8px
+
+.right_group
+  display: flex
+  flex-direction: row
+  margin-left: auto
+
+@media all and (max-width: 781px)
+  .logo
+    display: none
+
+@media all and (max-width: 660px)
+  .userName
+    display: none

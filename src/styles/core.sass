@@ -1,0 +1,71 @@
+
+html, body
+  min-height : 100vh
+  width : 100%
+  min-width: 530px
+
+body
+  background : #E7EBF0
+  // background: #F1F1F1
+  font-family: 'Roboto', sans-serif
+  font-size : 13px
+
+a
+  transition: none
+
+
+body :global
+  .multiselect-container
+    +noselect
+  .multiselect-container>li>a>label
+    padding: 6px 20px 6px 30px
+    min-height: 30px
+    text-overflow: ellipsis
+    overflow: hidden
+  .multiselect-container>li>a>label.radio
+    padding: 6px
+  .multiselect-container>li>a>label>input[type=checkbox]
+    margin-bottom : -2px
+    margin-right: 4px
+  .multiselect-container>li>a>label>input[type=radio]
+    display: none
+    margin-bottom : -3px
+    margin-right: 4px
+  .multiselect.btn
+    min-height: 30px
+    font-weight : 400 
+    width : 100%
+    border-radius: 0
+    text-align : left
+    // &.btn-default:focus
+    //   background-image : none
+    .caret
+      position : absolute
+      right : 6px 
+      top : 50% 
+      margin-top : -2px
+
+  .btn-group
+    width : 100%
+  .multiselect-container.dropdown-menu
+    width : 100%
+    &>li>a
+      white-space : inherit
+
+  .multiselect-selected-text
+    white-space: normal
+    text-overflow: ellipsis
+    overflow: hidden
+    display: block
+
+  span.multiselect-native-select
+    flex-grow: 1
+
+*
+  min-height: 0
+  min-width: 0
+
+body :global
+  .form-control
+    border-radius: 0
+    
