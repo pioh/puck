@@ -1,10 +1,10 @@
-import React, { Component, PropTypes } from 'react'
+import React, {Component, PropTypes} from 'react'
 import RBMultiselect from 'react-bootstrap-multiselect'
 import _get from 'lodash/get'
 import classNames from 'classnames'
 
 import {observer} from 'mobx-react'
-import {computed, action} from 'mobx'
+import {computed, action, autorun, runInAction} from 'mobx'
 
 import s from './Select.sass'
 
@@ -24,6 +24,7 @@ class Select extends Component {
     onChange : PropTypes.func,
     disabled : PropTypes.bool,
   }
+  disposers = []
   static defaultProps = {
     upper: false,
   }
@@ -41,7 +42,21 @@ class Select extends Component {
     this.props.onChange && this.props.onChange(v)
   }
   componentWillMount (props) {
-    this.checkProps(this.props)
+    this.disposers.push(autorun(this.checkProps))
+  }
+  componentWillUnmount () {
+    this.disposers.forEach(disposer => {
+      disposer()
+    })
+    this.disposers = []
+  }
+
+  checkProps = () => {
+    if (!this.props.options.find(o => o.value === this.value)) {
+      runInAction(() => {
+        this.value = this.props.options[0] ? this.props.options[0].value : null
+      })
+    }
   }
   componentWillReceiveProps (props) {
     this.checkProps(props)

@@ -1,6 +1,6 @@
 import React, {PropTypes, Component} from 'react'
 import {observer} from 'mobx-react'
-import {observable, action, asStructure, autorun, runInAction, computed} from 'mobx'
+import {observable, action, autorun, runInAction, computed} from 'mobx'
 import $ from 'jquery'
 import classNames from 'classnames'
 import _get from 'lodash/get'
@@ -31,7 +31,7 @@ class Autocomplete extends Component {
   }
 
   @observable isFocus = false
-  @observable list = asStructure([])
+  @observable.struct list = []
   @observable listWord = null
 
   disposers = []

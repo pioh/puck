@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import FormGroup from 'react-bootstrap/es/FormGroup'
 import InputGroup from 'react-bootstrap/es/InputGroup'
 import {observer} from 'mobx-react'
 import {action, observe, observable, computed} from 'mobx'
-const Addon = InputGroup.Addon
 import Datetime from 'react-datetime'
 import 'react-datetime/css/react-datetime.css'
 import classNames from 'classnames'
@@ -13,8 +13,9 @@ import {Mask} from 'components/lib'
 
 import s from './FromTo.sass'
 
+const Addon = InputGroup.Addon
 
-let to2 = s => ('' + s).length === 1 ? '0' + s : s
+let to2 = s => (String(s)).length === 1 ? '0' + s : s
 
 export default
 @observer

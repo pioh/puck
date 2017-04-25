@@ -1,7 +1,5 @@
-import React, {Component, PropTypes} from 'react'
-if (__DEV__) {
-  var MobxDevTools = require('mobx-react-devtools').default
-}
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import 'todc-bootstrap/dist/css/bootstrap.css'
 import 'todc-bootstrap/dist/css/todc-bootstrap.css'
 import 'react-bootstrap-multiselect/css/bootstrap-multiselect.css'
@@ -13,6 +11,9 @@ import 'styles/core'
 
 import s from './BaseLayout.sass'
 
+if (__DEV__) {
+  var MobxDevTools = require('mobx-react-devtools').default
+}
 
 export default
 @inject('history')

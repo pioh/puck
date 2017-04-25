@@ -1,9 +1,10 @@
-import React, { Component, PropTypes } from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import RBMultiselect from 'react-bootstrap-multiselect'
 import _get from 'lodash/get'
 
 import {observer} from 'mobx-react'
-import {computed, action} from 'mobx'
+import {computed, action, runInAction, autorun} from 'mobx'
 
 import s from './Multiselect.sass'
 
@@ -19,8 +20,10 @@ class Multiselect extends Component {
       PropTypes.array,
     ]).isRequired,
   }
+  disposers = []
   @computed get store () {
-    return _get(this.props, ['store', ...this.props.field.split('.').reverse().slice(1).reverse()])
+    return _get(this.props, ['store', ...this.props.field.split('.').reverse().slice(1)
+      .reverse()])
   }
   @computed get field () {
     return this.props.field.split('.').slice(-1)[0]
@@ -32,7 +35,21 @@ class Multiselect extends Component {
     this.store[this.field] = v
   }
   componentWillMount (props) {
-    this.checkProps(this.props)
+    this.disposers.push(autorun(this.checkProps))
+  }
+  componentWillUnmount () {
+    this.disposers.forEach(disposer => {
+      disposer()
+    })
+    this.disposers = []
+  }
+  checkProps = () => {
+    let badOptions = this.value.filter(key => !this.optionsMap[key])
+    if (badOptions.length) {
+      runInAction(() => {
+        this.value =  this.value.filter(key => this.optionsMap[key])
+      })
+    }
   }
   componentWillReceiveProps (props) {
     this.checkProps(props)
@@ -74,7 +91,8 @@ class Multiselect extends Component {
 
     let map = {...this.selectedMap}
     map[val] = checked === true
-    this.value = Object.entries(map).filter(([k, v]) => v).map(([k]) => k).sort()
+    this.value = Object.entries(map).filter(([k, v]) => v).map(([k]) => k)
+      .sort()
   }
   render () {
     return (

@@ -10,11 +10,11 @@ class History {
   @observable props = observable.map()
   @observable basename = '' // format: '9r/baikal'
   @observable pathname = '/'
-  @observable title    = 'Телефонист'
-  @observable pushedTitle = 'Телефонист'
+  @observable title    = 'Puck'
+  @observable pushedTitle = this.title
 
-  history = undefined
-  unlisten = undefined
+  history = void 0
+  unlisten = void 0
 
   constructor () {
     if (History.singletonInstance) return History.singletonInstance
@@ -52,7 +52,10 @@ class History {
   }
 
   toHref (pathname = this.pathname, props = this.props.toJS(), basename = this.basename) {
-    let locationPathname = ['', basename, pathname].map(a => a.replace(/(^\/|\/$)/g, '')).join('/')
+    let locationPathname = [
+      '',
+      ...[basename, pathname].map(a => a.replace(/(^\/|\/$)/g, '')).filter(v => v),
+    ].join('/')
 
     let search = Object.keys(props)
       .sort()
@@ -88,7 +91,7 @@ class History {
     .map(kv => kv.split('='))
     .filter(([k, v]) => k)
     .map(([k, v]) => {
-      props[k] = v === undefined ? true : decodeURIComponent(v)
+      props[k] = v === void 0 ? true : decodeURIComponent(v)
     })
     return {pathname, props}
   }
@@ -96,7 +99,7 @@ class History {
   @action replace = ({pathname, props}) => {
     if (pathname) this.pathname = pathname
     if (props) this.props.merge(props)
-    let now = this.toHref(this.pathname, this.props)
+    let now = this.toHref(this.pathname, this.props.toJS())
     if (this.url === now) return
     this.history.replace(this.url)
   }

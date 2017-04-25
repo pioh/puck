@@ -1,1 +1,0 @@
-export {UserFetcher} from './UserFetcher'

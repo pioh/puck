@@ -9,9 +9,12 @@
     "react",
     "promise"
   ],
-  "fix" : true,
   "env"     : {
-    "browser" : true
+    "browser" : true,
+    "es6": true,
+    "commonjs": true,
+    "node": true,
+    "shared-node-browser": true
   },
   "globals" : {
     "__DEV__"      : false,
@@ -21,11 +24,31 @@
     "__BASENAME__" : false
   },
   "rules": {
-    "semi" : [2, "never"],
+    "babel/semi" : [2, "never"],
+    "newline-per-chained-call" : [1, {"ignoreChainWithDepth": 3}],
+    "indent" : [2, 2],
+    "no-implicit-coercion" : [1],
     "max-len": [2, 120, 2],
-    "generator-star-spacing": 1,
+    "camelcase" : [1],
+    "no-lonely-if" : [1],
+    "curly" : [1],
+    "no-global-assign": ["error"],
+    "no-shadow": ["error", { "builtinGlobals": false, "hoist": "all", "allow": [] }],
+    "no-shadow-restricted-names":[2],
+    "no-native-reassign": [2],
+    "no-inner-declarations" : [1],
+    "no-param-reassign" : [0],
+    "no-undefined" : [1],
+    "consistent-return" : [1],
+    "generator-star-spacing": [1],
     "jsx-quotes": [2, "prefer-single"],
-    "comma-dangle" : [2, "only-multiline"],
+    "quote-props" :[1,"as-needed"],
+    "comma-dangle": ["error", "always-multiline"],
+    "no-mixed-operators": [1, {"groups": [["&", "|", "^", "~", "<<", ">>", ">>>"]]}],
+    "no-extra-parens": [1, "all", {
+      "nestedBinaryExpressions": false,
+      "ignoreJSX": "multi-line"
+    }],
     "key-spacing": ["error", {
       "align": {
         "beforeColon": true,
@@ -33,6 +56,7 @@
         "on": "colon"
       }
     }],
+    "react/no-unused-prop-types": [0],
     "no-multi-spaces": [0, {
       "exceptions": {
         "Property": true,
@@ -42,10 +66,16 @@
         "ObjectExpression" : true
       }
     }],
+    "keyword-spacing": ["error", { "after": true, "before": true }],
     "no-multiple-empty-lines": ["error", {
       "max": 2,
       "maxEOF": 1
     }],
-    "react/jsx-no-bind": [0]
+    "babel/no-invalid-this": [1],
+    "babel/new-cap": [1, { "capIsNew": false}],
+    "react/jsx-no-bind": [0],
+    "babel/object-curly-spacing": ["error", "never"],
+    "array-bracket-spacing": ["error", "never"],
+    "brace-style": ["error", "1tbs", { "allowSingleLine": false }]
   }
 }

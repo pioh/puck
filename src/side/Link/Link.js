@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import {action, computed} from 'mobx'
 import {observer, inject} from 'mobx-react'
 import minimatch from 'minimatch'
@@ -10,7 +11,7 @@ function isLeftClickEvent (event) {
 }
 
 function isModifiedEvent (event) {
-  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey)
+  return Boolean(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey)
 }
 
 export default

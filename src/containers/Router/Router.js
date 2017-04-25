@@ -1,37 +1,30 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import {autorun, runInAction} from 'mobx'
 import {observer, inject} from 'mobx-react'
 
-import {AllTasksContainer, TasksContainer, OffersContainer, TaskContainer} from 'containers/Telephonist'
-import {BaseLayout, Login} from 'components'
-import {Stats} from 'components/Telephonist'
+import Puck from 'containers/Puck'
+import {BaseLayout} from 'components'
 import {Error404, Error403} from 'components/Errors'
 import {RouterStore} from 'store'
 
 const Components = {
   BaseLayout,
-  Login,
-  AllTasksContainer,
   Error404,
   Error403,
-  OffersContainer,
-  TasksContainer,
-  TaskContainer,
-  Stats,
+  Puck,
 }
 
 
-@inject('history', 'userStore')
+@inject('history')
 @observer
 class Router extends Component {
   static propTypes = {
-    history   : PropTypes.object.isRequired,
-    userStore : PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
   }
 
   routerStore = RouterStore({}, {
-    historyStore : this.props.history,
-    userStore    : this.props.userStore,
+    historyStore: this.props.history,
   })
   disposers = []
 
